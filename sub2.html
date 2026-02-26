@@ -13,7 +13,6 @@
     />
     <!-- 메인 CSS -->
     <link rel="stylesheet" href="./css/sub2-paint.css" />
-        <script type="module" src="./js/common.js"></script>
       <script src="./js/JSpaint.js" defer></script>
   </head>
   <body>
@@ -312,46 +311,5 @@
         </div>
       </footer>
     </div>
-    <!-- 모바일 햄버거 메뉴 스크립트 -->
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const menu2 = document.getElementById("spart-menu2");
-        const hamBtn = menu2 && menu2.querySelector(".menubtn-ham");
-
-        if (hamBtn) {
-          hamBtn.addEventListener("click", () => {
-            const isOpen = menu2.classList.toggle("menu-open");
-            document.body.classList.toggle("menu-open", isOpen);
-          });
-        }
-
-        // 검색 버튼 (모바일) - 검색창 포커스
-        const searchBtn = menu2 && menu2.querySelector(".menubtn-search");
-        if (searchBtn) {
-          searchBtn.addEventListener("click", () => {
-            const input = document.getElementById("search-input");
-            if (input) input.focus();
-            // 메뉴가 열려있으면 닫기
-            if (menu2.classList.contains("menu-open")) {
-              menu2.classList.remove("menu-open");
-              document.body.classList.remove("menu-open");
-            }
-          });
-        }
-
-        // 서브메뉴 아코디언 (chevron 클릭 시 토글)
-        const chevrons = document.querySelectorAll(".fa-chevron-down");
-        chevrons.forEach((chevron) => {
-          chevron.addEventListener("click", (e) => {
-            e.stopPropagation();
-            chevron.classList.toggle("active");
-            const subList = chevron.nextElementSibling;
-            if (subList && subList.classList.contains("sub-list")) {
-              subList.classList.toggle("active");
-            }
-          });
-        });
-      });
-    </script>
   </body>
 </html>

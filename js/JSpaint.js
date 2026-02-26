@@ -1,4 +1,42 @@
 window.addEventListener("DOMContentLoaded", () => {
+
+  /* ── 모바일 햄버거 메뉴 ── */
+  const menu2 = document.getElementById("spart-menu2");
+  const hamBtn = menu2 && menu2.querySelector(".menubtn-ham");
+
+  if (hamBtn) {
+    hamBtn.addEventListener("click", () => {
+      const isOpen = menu2.classList.toggle("menu-open");
+      document.body.classList.toggle("menu-open", isOpen);
+    });
+  }
+
+  // 검색버튼: 검색창 포커스 + 메뉴 닫기
+  const searchBtn = menu2 && menu2.querySelector(".menubtn-search");
+  if (searchBtn) {
+    searchBtn.addEventListener("click", () => {
+      if (menu2.classList.contains("menu-open")) {
+        menu2.classList.remove("menu-open");
+        document.body.classList.remove("menu-open");
+      }
+      const input = document.getElementById("search-input");
+      if (input) input.focus();
+    });
+  }
+
+  // 서브메뉴 chevron 아코디언
+  document.querySelectorAll(".fa-chevron-down").forEach((chevron) => {
+    chevron.addEventListener("click", (e) => {
+      e.stopPropagation();
+      chevron.classList.toggle("active");
+      const subList = chevron.nextElementSibling;
+      if (subList && subList.classList.contains("sub-list")) {
+        subList.classList.toggle("active");
+      }
+    });
+  });
+  /* ── 모바일 햄버거 메뉴 끝 ── */
+
   const wrap = document.querySelector(".wrap");
   const pagingList = document.querySelectorAll(".dot");
 

@@ -57,7 +57,13 @@ header.top {
 .line1 a.active {
     color: #c52531;
     font-weight: bold;
-    background-color: transparent
+    background-color: transparent;
+}
+
+/* sub2.html(Paintings 페이지): line1 첫번째 링크 항상 active 색상 */
+.line1 > a:first-child {
+  color: #c52531;
+  font-weight: bold;
 }
 
 .line1 {
@@ -93,19 +99,23 @@ header.top {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-   
+  z-index: 10;
   /*Y축 중앙이동*/
 }
 
 /*왼쪽버튼*/
 .ab1 {
   left: 50px;
-  
 }
 
 /*오른쪽버튼*/
 .ab2 {
   right: 50px;
+}
+
+/* painting-part: 화살표 기준 위치 */
+.painting-part {
+  position: relative;
 }
 
 /* ////////////////////////////////////////// */
@@ -146,6 +156,9 @@ header.top {
 .wrap {
   max-width: 1140px;
   margin: 0 auto;
+  /* 좌우 화살표(~100px) 만큼 패딩 확보 */
+  padding: 0 100px;
+  box-sizing: border-box;
 }
 
 /* 내부 플렉스박스 */
@@ -153,8 +166,9 @@ header.top {
   display: flex;
   /* 랩핑박스 - 줄바꿈됨 */
   flex-wrap: wrap;
+  /* 가운데 정렬 */
+  justify-content: center;
   /* 사이간격: gap */
-  /* gap: 위아래 양쪽 */
   gap: 21.4vh 4.5vh;
 }
 
@@ -221,7 +235,6 @@ header.top {
   left: 0;
   top: 0;
   width: 100%;
-  height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   animation: fadeIn 0.3s ease;
   overflow: auto;
@@ -413,6 +426,7 @@ height: 100%;
 @media screen and (max-width: 1200px) {
   .wrap {
     max-width: 900px;
+    padding: 0 80px;
   }
   .wrap li {
     width: calc((100% - 4.5vh * 2) / 3);
@@ -429,7 +443,7 @@ height: 100%;
   }
   .wrap {
     max-width: 760px;
-    padding: 0 20px;
+    padding: 0 70px;
   }
   .wrap li {
     width: calc((100% - 4.5vh) / 2);
@@ -441,7 +455,7 @@ height: 100%;
   /* 모달 세로 전환 */
   .modal-content {
     height: auto;
-    max-height: 90vh;
+  
     overflow: auto;
   }
   .modal-content > .flex {
@@ -686,21 +700,25 @@ height: 100%;
   }
 
   /* ── 그림 리스트 모바일 ── */
+  /* painting-part: 화살표는 position absolute 유지, wrap이 중앙 */
   .painting-part.inabox {
     position: relative;
-    padding: 0 4vw;
+    padding: 0;
     box-sizing: border-box;
   }
   .wrap {
     max-width: 100%;
-    padding: 0;
+    /* 화살표(좌우 각 44px) 공간 확보 */
+    padding: 0 50px;
     box-sizing: border-box;
   }
   .wrap ul {
-    gap: 4vw 3vw;
+    gap: 5vw 4vw;
+    justify-content: center;
   }
   .wrap li {
-    width: calc(50% - 1.5vw);
+    /* 2열, 화살표 패딩 제외한 너비 */
+    width: calc(50% - 2vw);
     aspect-ratio: 340 / 430;
   }
   .wrap img {
@@ -710,17 +728,14 @@ height: 100%;
     font-size: 1.3rem;
   }
 
-  /* 좌우 버튼 */
-  .abtn.ab1 { left: 10px; }
-  .abtn.ab2 { right: 10px; }
-  .abtn img { width: 28px; }
+  /* 좌우 버튼 - wrap 밖, painting-part 기준 */
+  .abtn.ab1 { left: 5px; }
+  .abtn.ab2 { right: 5px; }
+  .abtn img { width: 30px; }
 
   /* 모달 모바일 */
   .modal-content {
     margin: 5% auto;
-    width: 95%;
-    height: auto;
-    max-height: 88vh;
     overflow-y: auto;
   }
   .modal-content > .flex {
@@ -769,10 +784,12 @@ height: 100%;
 
 /* 480px 이하 */
 @media screen and (max-width: 480px) {
+  .wrap {
+    padding: 0 44px;
+  }
   .wrap li {
-    width: calc(50% - 1.5vw);
-    aspect-ratio: auto;
-    min-height: 220px;
+    width: calc(50% - 2vw);
+    aspect-ratio: 340 / 400;
   }
   .wrap img {
     max-width: 130px;
@@ -781,7 +798,7 @@ height: 100%;
     font-size: 1.1rem;
   }
   .abtn img {
-    width: 22px;
+    width: 24px;
   }
   .dots {
     margin: 40px 5px;
