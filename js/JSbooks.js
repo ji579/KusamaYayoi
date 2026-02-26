@@ -8,6 +8,8 @@
 //  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 window.addEventListener("DOMContentLoaded", () => {
+  // 햄버거 메뉴 토글 및 서브메뉴 아코디언은 common.js에서 처리
+
   // console.log("로딩완료!");
 
   // 0. 요구사항분석 ////
@@ -173,10 +175,11 @@ window.addEventListener("DOMContentLoaded", () => {
         <ul class="list" data-num="${i}">
           <div class="section">
       <button class="modal-btn" onclick="openModal(event)"></button>
-   
-            <li class="book">
-                <img src="./images/book${i}.jpg" alt="book${i}" class="img-box">
-            </li>
+            <div class="book-line-wrap">
+              <li class="book">
+                  <img src="./images/book${i}.jpg" alt="book${i}" class="img-box">
+              </li>
+            </div>
             <li class="booktxt">
              <h3>${workTitle[i - 1]}</h3>
             </li> 
