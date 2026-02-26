@@ -94,7 +94,7 @@ left: 50%;
   position: absolute;
   top: 50%;
     translate: 0 -50%;
-    right: calc(100% / 12);
+    right: 20px;
     gap: 20px;
   
 }

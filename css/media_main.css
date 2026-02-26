@@ -156,6 +156,30 @@ top: 10%;
 
 /* 800px 이하 미디어쿼리 시작 */
 @media screen and (max-width: 800px) {
+  /* 가로 스크롤 방지 */
+  html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+
+  /* 상단 헤더 (Japanese Artist / 로고 / Yayoi Kusama) 숨기기 */
+  #top-area .top-area {
+    display: none;
+  }
+
+  /* 스티키 메뉴를 모바일에서 항상 상단 고정으로 표시 */
+  #spart-menu {
+    top: 0 !important;
+    width: 100% !important;
+    left: 0 !important;
+    translate: none !important;
+  }
+
+  /* 상단 헤더 높이 제거 (sticky header가 사라지므로) */
+  .top {
+    height: auto;
+  }
+
   /* ///////////화면전체*/
   /* 모바일용 메뉴 */
 
@@ -178,8 +202,10 @@ top: 10%;
 
 
   .center-box {
-    width: 800px;
+    width: 100% !important;
+    max-width: 100%;
     position: relative;
+    box-sizing: border-box;
   }
   body.menu-open {
     overflow: hidden;
@@ -447,6 +473,11 @@ top: 10%;
     width: 100%;
     height: auto;
     object-fit: cover;
+  }
+
+  /* 배너영역 - 스티키메뉴 높이만큼 패딩 */
+  #banner-area {
+    padding-top: 94px;
   }
 
   /* 배너영역*/
