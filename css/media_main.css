@@ -155,7 +155,6 @@
 /* 800px 이하 미디어쿼리 시작 */
 @media screen and (max-width: 800px) {
   /* 가로 스크롤 방지 */
-  html,
   body {
     overflow-x: hidden;
     max-width: 100%;
@@ -465,18 +464,13 @@
     object-fit: cover;
   }
 
-  /* 배너영역 - 스티키메뉴 높이만큼 패딩 */
-  #banner-area {
-    padding-top: 94px;
-  }
-
   /* 배너영역*/
   .yayoi {
-    top: 1%;
+    top: -1%;
     scale: 0.7;
   }
   .bg {
-    top: -6%;
+    top: -8%;
     scale: 0.7;
   }
   .scroll-inbox {
@@ -523,7 +517,6 @@
     top: 17px;
     left: 44%;
     translate: -50% 0;
-     scale: .8;
   }
   .small {
     position: absolute;
@@ -533,9 +526,8 @@
   }
   .middle {
     position: absolute;
-           top: 239px;
+           top: 248px;
     left: 76%;
-    scale: .8;
   }
 
   /* 하단영역 */
