@@ -193,14 +193,10 @@ header.top {
 
 /* 이미지태그를 배경처럼 넣기 */
 .wrap img {
+  width: 100%;
   max-width: 340px;
-  /* height: 100%; */
-  object-fit: cover;
-  /* object-fit속성
-            이미지를 해당박스에서 이미지처럼
-            넘치는 부분을 적당히 잘라서 안보이게하며
-            비율 유지를 할 수 있게 해주는 속성
-            그 값으로 cover를 사용함! */
+  height: auto;
+  object-fit: contain;
 }
 .wrap h3 {
   font-size: 1.8rem;
@@ -360,16 +356,18 @@ strong {
 
 .modal-btn{
   position: absolute;
+  top: 0;
   left: 50%;
-  transform: translate(-50%, 0);
- background: transparent;
+  transform: translateX(-50%);
+  background: transparent;
   border: none;
-width: 100%;
-height: 100%;
+  width: 100%;
+  /* li의 h3 높이(gap 32px + h3 약 2.2rem)를 제외한 이미지 영역만 커버 */
+  height: calc(100% - 32px - 2.2rem);
   border-radius: 5px;
   cursor: pointer;
   transition: background 0.3s ease;
-  z-index: 999;
+  z-index: 5;
 }
 
 .search-form>button {
@@ -431,7 +429,10 @@ height: 100%;
     width: calc((100% - 4.5vh * 2) / 3);
   }
   .wrap img {
+    width: 100%;
     max-width: 280px;
+    height: auto;
+    object-fit: contain;
   }
 }
 
@@ -449,7 +450,10 @@ height: 100%;
     aspect-ratio: 340 / 430;
   }
   .wrap img {
+    width: 100%;
     max-width: 240px;
+    height: auto;
+    object-fit: contain;
   }
   /* 모달 세로 전환 */
   .modal-content {
@@ -721,7 +725,10 @@ height: 100%;
     aspect-ratio: 340 / 430;
   }
   .wrap img {
+    width: 100%;
     max-width: 100%;
+    height: auto;
+    object-fit: contain;
   }
   .wrap h3 {
     font-size: 1.3rem;
@@ -791,7 +798,10 @@ height: 100%;
     aspect-ratio: 340 / 400;
   }
   .wrap img {
+    width: 100%;
     max-width: 130px;
+    height: auto;
+    object-fit: contain;
   }
   .wrap h3 {
     font-size: 1.1rem;

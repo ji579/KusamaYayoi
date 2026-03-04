@@ -387,7 +387,6 @@ p {
   .sub2 > div {
     font-size: 2.5vh;
     position: relative;
-    display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0.4rem 0;
