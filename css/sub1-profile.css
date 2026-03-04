@@ -112,7 +112,7 @@ body {
   box-sizing: border-box;
   /* padding: 40px 60px; */
 }
-
+.swiper-button-next, .swiper-button-prev {color: #000000;}
 #books-area {
   /* height: 89%; */
   position: relative;
@@ -147,8 +147,8 @@ overflow: hidden;
 }
 .btn-group {
   position: absolute;
-  right: 3.3vw;
-  top: 5.6vh;
+    right: 4.3vw;
+    top: 8.6vh;
   padding: 10px;
   display: flex;
   gap: 17px;
