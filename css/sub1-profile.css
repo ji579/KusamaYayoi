@@ -384,3 +384,67 @@ i > p {
   font-weight: 500;
   z-index: 10;
 }
+/* ============================================================
+   MEDIA QUERY — 1200px 이하
+   ============================================================ */
+@media screen and (max-width: 1200px) {
+  .swiper { width: 100%; }
+
+  .text-box {
+    width: 95%;
+    height: auto;
+    gap: 60px;
+    padding: 40px 0;
+  }
+
+  .left  { width: 46%; margin-left: 0; }
+  .right { width: 46%; margin-right: 0; }
+
+  .profile { width: 75vw; }
+  .yayoi   { width: 43vw; bottom: 80px; }
+}
+
+
+/* ============================================================
+   MEDIA QUERY — 1024px 이하
+   ============================================================ */
+@media screen and (max-width: 1024px) {
+  .swiper { width: 100%; }
+
+  .text-box {
+    width: 92%;
+    height: auto;
+    gap: 40px;
+    padding: 40px 0;
+  }
+
+  .left  { width: 46%; margin-left: 0; }
+  .right { width: 46%; margin-right: 0; }
+
+  .name  { gap: 6vw; }
+
+  .profile { width: 85vw; }
+  .yayoi   { width: 50vw; bottom: 80px; }}
+  
+@media screen and (max-width: 800px) {
+
+  /* 헤더 */
+  .tit { font-size: 2.4rem; height: 60px;         margin-top: 94px; margin-bottom: 30px; }
+
+  /* 프로필 이미지 */
+  #main-area { margin-bottom: 60px; }
+
+  .profile { width: 100vw; }
+  .profile > img.profile { width: 100%; height: auto; }
+
+  .yayoi {
+    width: 65vw;
+    bottom: 68px;
+    left: 50%;
+    translate: -50% 0;
+  }
+
+  .pro-box > ul > li > p {
+    font-size: 1.3rem;
+    padding: 0 16px;
+  }}
