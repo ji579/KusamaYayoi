@@ -1,19 +1,27 @@
 @charset "utf-8";
 
+/* 가로 스크롤 전역 차단 - body에만 적용 (html에 적용하면 sticky 깨짐!) */
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
 /* 1360px 이하 미디어쿼리 시작 */
 @media screen and (max-width: 1360px) {
+  body {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
   .top {
     height: 100vh;
-    height: 100dvh; /* 모바일 브라우저 주소창 고려 */
+    height: 100dvh;
   }
   .bg {
-    /* aspect-ratio: 1295 /548; */
     position: absolute;
     top: 10%;
     left: 50%;
     width: 1200px;
     height: 686px;
-
     translate: -50% 0;
   }
   .yayoi {
@@ -28,9 +36,6 @@
   .inbox {
     padding: 0 2vw;
   }
-  /* .contact-area h2 {
-    padding: 9vw 0 1vw 0;
-  } */
   .contact-area h2 {
     padding: 1vw 0 1vw 0;
   }
@@ -39,13 +44,16 @@
 
 /* 1200px 이하 미디어쿼리 시작 */
 @media screen and (max-width: 1200px) {
-  /* 전체 글자 크기 변경 */
+  body {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+
   html {
     font-size: 9px;
   }
 
   .center-box {
-    /*상단메뉴*/
     width: 1200px;
   }
 
@@ -60,7 +68,6 @@
     top: 80%;
   }
 
-  /* 컨택영역 */
   .desc-box {
     width: 480px;
     border: 0.2vw solid rgb(0, 0, 0);
@@ -84,26 +91,23 @@
   }
   .bottom-area {
     max-width: 1200px;
-    /* padding: 0 calc(100% / 12) 2.7vw; */
   }
 }
 /* 1200px 이하 미디어쿼리 종료 */
 
 /* 1024px 이하 미디어쿼리 시작 */
 @media screen and (max-width: 1024px) {
-  /* 전체 글자 크기 변경 */
+  body {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+
   html {
     font-size: 8px;
   }
 
-  /* 메인-상단 창 */
   .center-box {
     justify-content: center !important;
-  }
-  /* //////////메인상단끝////////////// */
-
-  .center-box {
-    /*상단메뉴*/
     width: 1024px;
   }
 
@@ -114,7 +118,6 @@
     width: 1024px;
   }
 
-  /* 컨택영역 */
   .contact-area {
     height: 1045px;
     padding: 1vw calc(100% / 12) 1vw;
@@ -154,42 +157,37 @@
 
 /* 800px 이하 미디어쿼리 시작 */
 @media screen and (max-width: 800px) {
-  /* 가로 스크롤 방지 */
   body {
-    overflow-x: hidden;
-    max-width: 100%;
+    overflow-x: hidden !important;
+    max-width: 100% !important;
   }
 
-  /* 스티키 메뉴를 모바일에서 항상 상단 고정으로 표시 */
+  * {
+    box-sizing: border-box;
+  }
+
   #spart-menu {
-    width: 100% ;
+    width: 100%;
     left: 0 !important;
     translate: none;
   }
 
-  /* 상단 헤더 높이 제거 (sticky header가 사라지므로) */
   .top {
     height: auto;
   }
-
-  /* ///////////화면전체*/
-  /* 모바일용 메뉴 */
 
   .inbox {
     padding: 0;
   }
 
-  /* 메뉴그룹 변경 */
   .menu-group {
     height: 100%;
     display: flex;
     flex-direction: column;
-    /* padding: 5vw; */
     background-color: white;
     justify-content: flex-start;
     align-items: flex-start;
     box-sizing: border-box;
-    /* padding: 10vh 5vw; */
   }
 
   .center-box {
@@ -215,42 +213,24 @@
   .menubtn-group {
     display: block;
   }
-  /* 상단영역 최상위 부모인  #top-area에 클래스 on을 주면
-  메뉴박스인 .menu-box의 left값을 0으로 변경한다! */
   #top-area.on .menu-box {
     left: 0;
   }
 
-  /* .gnb-list > ul{
-  margin: 0
-}; */
-
-  /* 탑메뉴 변경 */
-  /* .top-menu ul {
-    width: 85vw;
-    line-height: 4;
-    margin-top: 5vh;
-    border-bottom: 5px solid #e5e5e5;
-  } */
-  /* GNB 메뉴 변경 */
   .gnb-menu ul {
-    margin-top: 5vh;
     flex-direction: column;
     font-size: 2.5vh;
     margin: 0;
     padding: 0;
   }
 
-  /* GNB메뉴 가로크기 변경 */
   nav.gnb-menu {
     width: 100%;
   }
   .sub {
     display: flex;
     width: 100%;
-    /* justify-content: space-between; */
   }
-  /* GNB 메뉴 아이콘 크기위치변경 */
   .gnb-menu i {
     float: right;
   }
@@ -269,53 +249,33 @@
     position: relative;
   }
 
-  .fa-chevron-down:before {
-    /* position: absolute; */
-    cursor: pointer;
-    transition: transform 0.3s ease;
-  }
-  /* 활성화 시 화살표 회전 */
-  .fa-chevron-down.active {
-    transform: rotate(180deg);
-  }
-  /* ///////////////////// */
-  /* 또는 더 간단하게 */
   .fa-chevron-down {
     cursor: pointer;
     transition: transform 0.3s ease;
-    margin-left: 8px; /* 아이콘과 텍스트 사이 간격 */
+    margin-left: 8px;
   }
-  /* ///////////////////// */
+  .fa-chevron-down.active {
+    transform: rotate(180deg);
+  }
 
   .gnb-menu ul {
     align-items: flex-start;
+    height: auto;
   }
   .gnb-list > li {
     width: 100%;
     border-bottom: 1px solid #000000;
-    /* padding: 1.6rem 0;
-
-    margin-bottom: 3.2rem; */
     padding: 3.2rem;
   }
   .gnb-list > li:nth-child(3),
   .gnb-list > li:nth-child(4) {
     padding: 3.2rem 3.2rem calc(2.5vh * 2 + 3.2rem) 3.2rem;
   }
-  .gnb-list > li > a:nth-child(1),
-  .gnb-list > li > a:nth-child(2),
-  .gnb-list > li > a:nth-child(5) {
-    width: 100%;
-  }
-
   .gnb-list > li > a {
     color: #000 !important;
     width: 33%;
-    /* width: 100%; */
-    /* margin: 0 10vh; */
     margin: 0 0 0 calc(100% / 12);
     text-align: left;
-
     font-size: 2.5vh !important;
   }
   .two-line > li > a {
@@ -336,21 +296,15 @@
     max-height: 500px;
   }
 
-  /* 서브메뉴 화면 채우기 설정변경 */
   .sub-menu {
     position: fixed;
     top: 0;
-    /* left: 100%; */
-    /* 왼쪽 바깥에 나가있음! */
     z-index: 1;
-    /* width: 100vw; */
     height: 100vh;
     width: 50%;
     background-color: #8c4b4b;
     max-height: none;
   }
-
-  /* 서브메뉴에 클래스 on을 주면 left값을 0으로 변경 */
   .sub-menu.on {
     left: 0;
   }
@@ -359,42 +313,32 @@
     display: none !important;
   }
 
-  /* GNB메뉴 기존 높이값 해제 */
-  .gnb-menu ul {
-    height: auto;
-  }
-  /* GNB메뉴 li 기존 가로값 해제 */
   .sub-list li {
     width: auto;
   }
 
-  /* 모바일용 메인 화면 구성 */
-  /* 1. 데스크탑용 article 숨기기 */
+  /* 모바일용 메인 */
   #col1,
   #col2,
   #col3 {
     display: none !important;
   }
 
-  /* 2. 모바일 통합 리스트를 Flex 컨테이너로 설정 (보이게 함) */
   .mobile-main-list {
-    display: flex !important; /* li를 정렬하기 위해 Flex 사용 */
-    flex-direction: column; /* li를 세로로 정렬 */
+    display: flex !important;
+    flex-direction: column;
     width: 100%;
     margin: 0;
     padding: 0;
     list-style: none;
-    gap: 5px; /* li 간 간격 */
+    gap: 5px;
   }
 
-  /* 4. 항목 스타일 적용 (li 자체가 아닌 내부 요소에 적용) */
   .mobile-main-list .contact,
   .mobile-main-list .img-box,
   .mobile-main-list .main-center {
-    /* li 자체에 width: 100% */
     width: 100%;
     height: auto;
-    /* 높이 설정을 위해 li 내부의 콘텐츠에 aspect-ratio 적용 */
   }
 
   .mobile-main-list .contact img,
@@ -406,7 +350,6 @@
     object-fit: cover;
   }
 
-  /* 5. hover 효과 제거 */
   .contact:hover img {
     animation: none !important;
   }
@@ -420,7 +363,6 @@
     width: 100%;
     height: auto;
     object-fit: cover;
-    /* background: white; */
   }
 
   .main-info {
@@ -435,10 +377,11 @@
     translate: -50% 0;
     font-size: 1.6rem;
   }
-  /* //////////////////////////////////////////////////////// */
+
   .main-area {
     display: block;
     margin: -16px auto;
+    width: 100%;
   }
   .contact,
   .img-box img {
@@ -464,7 +407,7 @@
     object-fit: cover;
   }
 
-  /* 배너영역*/
+  /* 배너영역 */
   .yayoi {
     top: -1%;
     scale: 0.7;
@@ -476,15 +419,6 @@
   .scroll-inbox {
     top: 85%;
   }
-
-  /* .spart-menu ul li 1,2,4,5 번만 display:none 
-스티키 메뉴*/
-  /* .spart-menu ul > li:nth-child(1),
-  .spart-menu ul > li:nth-child(2),
-  .spart-menu ul > li:nth-child(4),
-  .spart-menu ul > li:nth-child(5) {
-    display: none;
-  } */
 
   /* 컨택영역 */
   .contact-area {
@@ -507,11 +441,10 @@
     margin: 0 5px;
   }
 
-
-.contact-area > p {
-  position: relative;
-  z-index: 1;
-}
+  .contact-area > p {
+    position: relative;
+    z-index: 1;
+  }
   .big {
     position: absolute;
     top: 17px;
@@ -526,7 +459,7 @@
   }
   .middle {
     position: absolute;
-           top: 248px;
+    top: 248px;
     left: 76%;
   }
 
